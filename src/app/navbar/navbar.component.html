@@ -1,0 +1,50 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+            <div class="center-title">
+                <div class="form-inline">
+            <mat-icon>local_grocery_store</mat-icon>   
+            <span> BAT STORE</span>
+        </div>
+            </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+    <button (click)="opened=!opened" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Mes options</span>
+        <div class="center">
+            <div class="form-inline">
+        <input class="form-control" type="search" placeholder="Cherchez un produit ou une catégorie" size="41px">
+        <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+        </button>
+    </div>
+    </div>
+    <button mat-flat-button color="primary"><mat-icon>home</mat-icon> Accueil</button>
+    <button mat-flat-button color="primary"><mat-icon>attach_money</mat-icon> Acheter un produit</button>
+    <button mat-flat-button color="primary"><mat-icon>help_outline</mat-icon> Besoin d'aide</button>
+
+
+    </mat-toolbar-row>
+
+      </mat-toolbar>
+      <mat-sidenav-container>
+    <mat-sidenav mode="side" [(opened)]="opened">
+        <div class="large">
+            Imad Zinbi
+        </div>
+       <mat-nav-list>
+           <mat-list-item><mat-icon matListIcon>account_circle</mat-icon><h4 matLine>Mon compte</h4></mat-list-item>
+           <mat-list-item><mat-icon matListIcon>assignment</mat-icon><h4 matLine>Mes achats</h4></mat-list-item>
+           <mat-list-item><mat-icon matListIcon>shopping_basket</mat-icon><h4 matLine>Mon panier</h4></mat-list-item>
+           <mat-list-item><mat-icon matListIcon>settings_power</mat-icon><h4 matLine>Déconnexion</h4></mat-list-item>
+           
+
+       </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content> 
+        <app-sidenav></app-sidenav>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
