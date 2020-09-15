@@ -21,7 +21,7 @@
     </div>
     </div>
     <button mat-flat-button color="primary"><mat-icon>home</mat-icon> Accueil</button>
-    <button mat-flat-button color="primary"><mat-icon>attach_money</mat-icon> Acheter un produit</button>
+    <button mat-flat-button routerLink="Produits" color="primary"><mat-icon>attach_money</mat-icon> Acheter un produit</button>
     <button mat-flat-button color="primary"><mat-icon>help_outline</mat-icon> Besoin d'aide</button>
 
 
@@ -36,15 +36,23 @@
        <mat-nav-list>
            <mat-list-item><mat-icon matListIcon>account_circle</mat-icon><h4 matLine>Mon compte</h4></mat-list-item>
            <mat-list-item><mat-icon matListIcon>assignment</mat-icon><h4 matLine>Mes achats</h4></mat-list-item>
-           <mat-list-item><mat-icon matListIcon>shopping_basket</mat-icon><h4 matLine>Mon panier</h4></mat-list-item>
+           <mat-list-item routerLink="Monpanier"><mat-icon matListIcon>shopping_basket</mat-icon><h4 matLine>Mon panier</h4></mat-list-item>
            <mat-list-item><mat-icon matListIcon>settings_power</mat-icon><h4 matLine>Déconnexion</h4></mat-list-item>
            
 
        </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content> 
-        <app-sidenav></app-sidenav>
-
+        <div   *ngIf="this.router.url === '/Monpanier'">
+            <app-monpanier></app-monpanier>
+        </div>
+        <div *ngIf="this.router.url === '/Produits'">
+            <app-produit-dispo></app-produit-dispo>
+        </div>
+        <div *ngIf="this.router.url=='/'">
+            <app-sidenav></app-sidenav>
+        </div>
+        
     </mat-sidenav-content>
   </mat-sidenav-container>
 

@@ -1,0 +1,60 @@
+    
+<div class="d-flex justify-content-start">
+    <h1>Mon panier</h1>
+</div>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef>ARTICLE</th>
+            <td mat-cell *matCellDef="let element">
+              <img [src]="element.image" />
+            </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="nom">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+          </ng-container>
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="quantite">
+            <th mat-header-cell *matHeaderCellDef> QUANTITÉ </th>
+            <td mat-cell *matCellDef="let element"> <mat-form-field appearance="fill">
+              <mat-label>QUANTITÉ	</mat-label>
+              <mat-select   >
+                <mat-option *ngFor="let quantite of quantites " value="{{quantite}}"  >{{quantite}}</mat-option>
+
+              </mat-select>
+            </mat-form-field></td>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="prixUnitaire">
+            <th mat-header-cell *matHeaderCellDef> PRIX UNITAIRE	 </th>
+            <td mat-cell *matCellDef="let element"> {{element.prixUnitaire}} </td>
+          </ng-container>
+          <ng-container matColumnDef="sousTotal">
+            <th mat-header-cell *matHeaderCellDef> SOUS-TOTAL	 </th>
+            <td mat-cell *matCellDef="let element">{{element.sousTotal}}</td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+              <div class="inline-form">
+          <div class="d-flex justify-content-end">
+          <span class="total">Total TTC: </span>
+          <span class="amount"> {{ 2200 | currency:'MAD':'' }}  Dhs</span>
+          </div>
+              </div>
+          <div class="d-flex justify-content-end">
+            <div class="boutons">
+          <button mat-raised-button  routerLink="Produits" color="warn" style="margin-right : 10px">POURSUIVRE VOS ACHATS</button>
+          <button mat-raised-button color="warn">FINALISER VOTRE COMMANDE</button>
+          </div>
+          </div>
+      </div>
