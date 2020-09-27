@@ -3,6 +3,7 @@ export class Produit {
     nomProduit: string;
     categorie: string;
     description: string;
+    prixUnitaire: number;
     quantite: number;
     image: string;
 

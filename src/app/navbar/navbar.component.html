@@ -20,6 +20,7 @@
         </button>
     </div>
     </div>
+    <button routerLink="EspaceAdmin" mat-flat-button color="primary"> Espace Administrateur</button>
     <button mat-flat-button color="primary"><mat-icon>home</mat-icon> Accueil</button>
     <button mat-flat-button routerLink="Produits" color="primary"><mat-icon>attach_money</mat-icon> Acheter un produit</button>
     <button mat-flat-button color="primary"><mat-icon>help_outline</mat-icon> Besoin d'aide</button>
@@ -42,16 +43,10 @@
 
        </mat-nav-list>
     </mat-sidenav>
+    
     <mat-sidenav-content> 
-        <div   *ngIf="this.router.url === '/Monpanier'">
-            <app-monpanier></app-monpanier>
-        </div>
-        <div *ngIf="this.router.url === '/Produits'">
-            <app-produit-dispo></app-produit-dispo>
-        </div>
-        <div *ngIf="this.router.url=='/'">
-            <app-sidenav></app-sidenav>
-        </div>
+     
+       <router-outlet></router-outlet>
         
     </mat-sidenav-content>
   </mat-sidenav-container>

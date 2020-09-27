@@ -44,6 +44,18 @@
                     </mat-form-field>
                     </div>
                     <div class="form-group">
+                          <mat-form-field  appearance="fill">
+                            <mat-label>Prix unitaire</mat-label>
+                            <input matInput formControlName="prixUnitaire" [(ngModel)]="produit.prixUnitaire" required>
+                            <span matSuffix>Dhs TTC</span>
+                            <mat-error *ngIf="productForm.controls.prixUnitaire.touched && productForm.controls.prixUnitaire.invalid">
+                                <span *ngIf="productForm.controls.prixUnitaire.errors.required">Veuillez renseigner ce champ </span>
+                                <span *ngIf="productForm.controls.prixUnitaire.errors.pattern">This field is invalid.</span>
+                              </mat-error>
+                            </mat-form-field>
+                          
+              </div>
+                    <div class="form-group">
                     <mat-form-field  appearance="fill">
                       <mat-label>Quantité</mat-label>
                       <input  matInput formControlName="quantite" [(ngModel)]="produit.quantite" required>
@@ -75,7 +87,7 @@
                       </div>
                       <mat-card-actions>
                         <div class="d-flex justify-content-center">
-                        <button  mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid" >
+                        <button (click)="openDialog() ; sendData(produit)" mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid" >
                           Ajouter le produit
                           <mat-icon>done</mat-icon></button>
                         </div>

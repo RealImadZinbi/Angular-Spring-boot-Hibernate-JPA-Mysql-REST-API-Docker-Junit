@@ -1,3 +1,8 @@
+import { SuccessAddComponent } from './success-add/success-add.component';
+import { InteractionServiceService } from './Services/interaction-service.service';
+import { ProduitsService } from './Services/produits.service';
+import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
+import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
 import {MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -7,8 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +29,9 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { MonpanierComponent } from './monpanier/monpanier.component';
 import { ProduitDispoComponent } from './produit-dispo/produit-dispo.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { VoirProduitComponent } from './voir-produit/voir-produit.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +42,10 @@ import { ProduitDispoComponent } from './produit-dispo/produit-dispo.component';
     SigninComponent,
     MonpanierComponent,
     ProduitDispoComponent,
+    EspaceAdminComponent,
+    AjouterProduitComponent,
+    SuccessAddComponent,
+    VoirProduitComponent
   ],
   imports: [
     BrowserModule,
@@ -52,10 +63,15 @@ import { ProduitDispoComponent } from './produit-dispo/produit-dispo.component';
     MatTableModule,
     MatPaginatorModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatDialogModule,
+    
 
   ],
-  providers: [],
+  providers: [ProduitsService,
+            InteractionServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

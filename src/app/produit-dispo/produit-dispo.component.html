@@ -1,28 +1,25 @@
-<mat-grid-list cols=3 rowHeight="13rem">
-    <mat-grid-tile rowspan="3">
+<div class="d-flex justify-content-center">
+    <h1><mat-icon>shopping_basket</mat-icon> Équipement disponibles</h1>
+</div>
+<mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let produit of produits$">
         <mat-card>
-            <mat-card-title>Pompe Hydraulique
-                </mat-card-title>
-                <mat-card-subtitle>Pompe hydraulique
-                </mat-card-subtitle>
-                         <img mat-card-image src="https://www.em-distribution.fr/34-large_default/pompe-centrifuge-de-surface-monocellulaire-cma-m-monophasee-230v-ebara.jpg">
-                <mat-card-content>
-
-                    Ceci est une pompe hydraulique qui permet de faire </mat-card-content>
-                <mat-card-actions>
-                    <button mat-raised-button color="primary">Commander</button>
-                </mat-card-actions>
-                <mat-card-footer></mat-card-footer>
+            <mat-card-header>
+            <mat-card-title>
+                {{produit.nomProduit}}
+            </mat-card-title>
+            <mat-card-subtitle>{{produit.categorie}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{produit.image}}">
+            <mat-card-content>
+                <h4>Prix unitaire : {{produit.prixUnitaire}}  Dhs</h4>
+                <h4>Quantité disponible : {{produit.quantite}}</h4>  
+                </mat-card-content>
+            <div class="d-flex justify-content-center">
+            <mat-card-actions>
+                <button (click)="voir(produit.id)" mat-raised-button color="primary">Voir  <mat-icon>remove_red_eye</mat-icon></button>       
+            </mat-card-actions>
+            </div>
         </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile rowspan="3">Here is a grid tile</mat-grid-tile>
-    <mat-grid-tile rowspan="3">Here is a grid tile</mat-grid-tile>
-    <mat-grid-tile rowspan="3">Here is a grid tile</mat-grid-tile>
-    <mat-grid-tile rowspan="3">Here is a grid tile</mat-grid-tile>
-    <mat-grid-tile rowspan="3">Here is a grid tile</mat-grid-tile>
-    <mat-grid-tile rowspan="3">Here is a grid tile</mat-grid-tile>
-    <mat-grid-tile rowspan="3">Here is a grid tile</mat-grid-tile>
-    <mat-grid-tile rowspan="3">Here is a grid tile</mat-grid-tile>
-
+    </mat-grid-tile>  
 </mat-grid-list>
-
