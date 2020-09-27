@@ -1,0 +1,30 @@
+<mat-grid-list cols=2 rowHeight="1:1">
+    <mat-grid-tile>
+        <mat-card>
+            <mat-card-content class="card">
+            <img mat-card-image src="assets/svg/add_document.svg" alt="Ajouter produit">
+            </mat-card-content>
+            <mat-card-footer>
+            <mat-card-actions>
+                <div class="d-flex justify-content-center">
+                    <button (click)="navigate()" mat-raised-button color="primary"><mat-icon>add</mat-icon>
+                        Ajouter un produit</button>
+                </div>
+            </mat-card-actions>
+            </mat-card-footer>
+            </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card>
+            <mat-card-content class="card-modifier">
+            <img mat-card-image src="assets/svg/update.svg" alt="Modifier produit">
+            </mat-card-content>
+            <mat-card-actions>
+                <div class="d-flex justify-content-center">
+                <button mat-raised-button color="primary"><mat-icon>edit</mat-icon>
+                    Modifier un produit</button>
+                </div>
+            </mat-card-actions>    
+            </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

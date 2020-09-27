@@ -1,0 +1,93 @@
+<mat-grid-list cols="2">
+    <mat-grid-tile>
+
+      <mat-card>
+        <div class="d-flex justify-content-center">
+        <mat-card-header>
+        <mat-card-title>INFORMATIONS GÉNÉRALES
+        </mat-card-title>
+        <mat-card-subtitle>
+          <div class="form-inline">
+          <div class="space">
+          <mat-icon>error_outline</mat-icon>
+          </div>
+          les champs avec (*) sont obligatoires
+          </div>
+        </mat-card-subtitle>
+      </mat-card-header>
+      </div>
+        <mat-card-content>
+          <div class="container">
+            <form [formGroup]="productForm" (submit)="onSubmit()">
+              <div class="form-group">
+                <mat-form-field  appearance="fill">
+                <mat-label>Nom du produit</mat-label>
+                <input matInput formControlName="nomProduit" [(ngModel)]="produit.nomProduit" required>
+                <mat-error *ngIf="productForm.controls.nomProduit.touched && productForm.controls.nomProduit.invalid">
+                    <span *ngIf="productForm.controls.nomProduit.errors.required">Veuillez renseigner ce champ </span>
+                    <span *ngIf="productForm.controls.nomProduit.errors.pattern">This field is invalid.</span>
+                  </mat-error>
+                </mat-form-field>
+                </div>
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Type de l'équipement</mat-label>
+                    <mat-select [(value)]="selected" formControlName="categorie" [(ngModel)]="produit.categorie" >
+                      <mat-option value="{{categorie}}" *ngFor="let categorie of categorieProduits">
+                          {{categorie}}
+                         </mat-option>
+                         <mat-error *ngIf="productForm.controls.categorie.touched && productForm.controls.categorie.invalid">
+                          <span *ngIf="productForm.controls.categorie.errors.required">Veuillez renseigner ce champ </span>
+                          <span *ngIf="productForm.controls.categorie.errors.pattern">This field is invalid.</span>
+                        </mat-error>
+                      </mat-select>
+                    </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                    <mat-form-field  appearance="fill">
+                      <mat-label>Quantité</mat-label>
+                      <input  matInput formControlName="quantite" [(ngModel)]="produit.quantite" required>
+                      <mat-error *ngIf="productForm.controls.quantite.touched && productForm.controls.categorie.invalid">
+                          <span *ngIf="productForm.controls.quantite.errors.required">Veuillez renseigner ce champ </span>
+                          <span *ngIf="productForm.controls.quantite.errors.pattern">This field is invalid.</span>
+                        </mat-error>
+                      </mat-form-field>
+                      </div>
+                      <div class="form-group">
+                      <mat-form-field  appearance="fill">
+                        <mat-label>Photo du produit</mat-label>
+                        <input  matInput formControlName="image" [(ngModel)]="produit.image" required>
+                        <mat-error *ngIf="productForm.controls.image.touched && productForm.controls.categorie.invalid">
+                            <span *ngIf="productForm.controls.image.errors.required">Veuillez renseigner ce champ </span>
+                            <span *ngIf="productForm.controls.image.errors.pattern">This field is invalid.</span>
+                          </mat-error>
+                        </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                      <mat-form-field class="textarea" appearance="fill">
+                        <mat-label>Description du produit</mat-label>
+                        <textarea  matInput formControlName="description" [(ngModel)]="produit.description" placeholder="Veuillez donnez plus de détails sur votre produit"></textarea>
+                        <mat-error *ngIf="productForm.controls.description.touched && productForm.controls.description.invalid">
+                        <span   *ngIf="productForm.controls.description.errors.required">Veuillez renseigner ce champ </span>
+                        <span  *ngIf="productForm.controls.description.errors.pattern">This field is invalid.</span>
+                          </mat-error>
+                      </mat-form-field>
+                      </div>
+                      <mat-card-actions>
+                        <div class="d-flex justify-content-center">
+                        <button  mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid" >
+                          Ajouter le produit
+                          <mat-icon>done</mat-icon></button>
+                        </div>
+                      </mat-card-actions>
+            </form>
+            </div>
+            </mat-card-content>
+           
+            </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <img src="assets/svg/Add_content.svg">
+    </mat-grid-tile>
+ 
+</mat-grid-list>

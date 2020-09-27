@@ -1,0 +1,23 @@
+img {
+    width: 80%;
+    height: 80%;
+}
+.space {
+    padding:5px;
+    margin-right:2px;
+}
+
+
+mat-card {  
+    width:80%;
+    height:85%;
+        background-color: #eeeeee;
+
+}
+    mat-form-field {
+     width: 90%;
+     padding: 5px;
+    }
+   
+    
+   
