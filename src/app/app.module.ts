@@ -32,6 +32,7 @@ import { ProduitDispoComponent } from './produit-dispo/produit-dispo.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { VoirProduitComponent } from './voir-produit/voir-produit.component';
+import { AjouterAuPanierComponent } from './ajouter-au-panier/ajouter-au-panier.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { VoirProduitComponent } from './voir-produit/voir-produit.component';
     EspaceAdminComponent,
     AjouterProduitComponent,
     SuccessAddComponent,
-    VoirProduitComponent
+    VoirProduitComponent,
+    AjouterAuPanierComponent
   ],
   imports: [
     BrowserModule,

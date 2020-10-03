@@ -1,0 +1,56 @@
+mat-card {
+    width: 80%;
+    padding: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 75%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 75%;
+    border-radius: 50%;
+}
+
+.large {
+    font-weight: bold;
+    font-size: 17px;
+}  
+.color {
+    color: orangered;
+}
+.attribute {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.flex-container > {
+    align-content: space-between;
+
+}
+h1 {
+        font-size: 20px;
+        background-color: #eeeeee;
+        padding: 10px;
+        font-style: italic;
+}
+.button-size {
+    padding: 5px 120px 1px 125px;
+    background-color: orange;
+   
+}
+.quantity-button {
+    color: white;
+    background-color: orange;
+    border-radius: 15%;
+
+    
+}
+.prixStyle {
+    display:flex ; 
+    align-items: baseline;
+    justify-content:space-between;
+}
+.prixStyle > div {
+    color: black; 
+    font-size: 25px;
+}
+

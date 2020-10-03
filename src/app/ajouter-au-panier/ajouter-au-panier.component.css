@@ -1,0 +1,8 @@
+.flex-container {
+    display: flex;
+    justify-content: center;
+    
+}
+.flex-container > button {
+  background-color: orange;
+}

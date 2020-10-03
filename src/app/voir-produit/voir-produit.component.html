@@ -1,0 +1,63 @@
+<mat-card>
+    <mat-card-title>
+        <div class="color">{{produit.nomProduit}}</div></mat-card-title>
+    <mat-card-subtitle>{{produit.categorie}}</mat-card-subtitle>
+<mat-grid-list cols="2">
+    <mat-grid-tile>
+        <img mat-card-image [src]="produit.image" alt="Photo of the Product">
+
+    </mat-grid-tile>
+    <mat-grid-tile  style="display:flex;flex-direction:column;align-content:center;height:100%;">
+        <mat-card-content>
+            <h1>LIVRAISON À DOMICILE :  LIVRÉ EN 5 À 7 JOURS
+                GRATUIT  pour les commandes supérieures à 1000 Dhs TTC </h1>
+            <h1>LIVRAISON AU MAGASIN CHEZ BAT-IRRIGATION </h1>
+            <div class="large" >
+                <div class="form-inline" >
+                    <div class="attribute">
+                        <div class="color">
+                        Prix unitaire :
+                        </div>
+                        </div>
+                         <div class="attribute"> {{produit.prixUnitaire}} Dhs TTC</div>
+                    </div>
+                <div class="form-inline">
+                <div class="attribute">
+                    <div class="color">
+                    Quantité disponible :
+                    </div>
+                    </div>
+                     <div class="attribute"> {{produit.quantite}}</div>
+                </div>
+                <div class="color"> Description :</div><div class="attribute"> {{produit.description}}</div></div>
+                       
+                            <div style="display:flex;  align-items: baseline ;">
+                         <div class="color ; large">
+                            Quantité:
+                        </div>
+                            <button class="quantity-button" mat-icon-button>
+                                <mat-icon (click)="minus()">remove</mat-icon>
+                              </button>
+                              <mat-form-field  appearance="outline" style="width:10% ; height:5%;">
+                                <input matInput [(ngModel)]="quantite">
+                                    </mat-form-field>
+                            <button class="quantity-button" mat-icon-button>
+                                     <mat-icon (click)="plus()">add</mat-icon>
+                              </button>       
+                               <h3 style="margin-left:10px;">({{this.quantite}} Produit(s) ajouté(s) )</h3>
+                                    </div>
+                            <div  class="color ; large ; prixStyle">
+                                Prix Total: 
+                                <div class="large">{{prixTotal}} Dhs TTC </div>
+                            </div>        
+        </mat-card-content>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-card-actions style =" display: flex; justify-content: center">
+    <button (click)="openDialog() ; sendData()" class="button-size"  mat-raised-button>
+        <div style="display:flex ;   justify-content: space-between;">
+        <mat-icon>add_shopping_cart</mat-icon><h3>J'ACHETE</h3>
+        </div>
+    </button>
+</mat-card-actions>
+</mat-card>
