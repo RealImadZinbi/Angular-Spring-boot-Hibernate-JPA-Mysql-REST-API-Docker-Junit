@@ -6,5 +6,6 @@ export class Produit {
     prixUnitaire: number;
     quantite: number;
     image: string;
+    sousTotal: number;
 
 }

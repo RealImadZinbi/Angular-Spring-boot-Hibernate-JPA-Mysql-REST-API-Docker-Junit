@@ -25,6 +25,7 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
   quantite: number = 0;
   prixTotal: number = 0;
   message: any;
+  produitCard = [];
   ngOnInit(): void {
     this.produit = new Produit();
     this.id = this.route.snapshot.params['id'];
@@ -32,16 +33,20 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
     this.data = this.produitService.getProduct(this.id).subscribe((produit) => {
       console.log(produit);
       this.produit = produit;
+
     }, error => console.log(error)); 
   }
+  
   async plus() {
-    if (this.quantite < this.produit.quantite) {
+    if (this.quantite < this.produit.quantite || this.produit.quantite > 0) {
+      
      const promise1 = new Promise((resolve,reject) => {
        resolve(
-         this.quantite++);
+        this.adjustPlus());
      })
      let prixTotal = await promise1;
      this.prixTotal = this.quantite*this.produit.prixUnitaire;
+     this.produit.sousTotal = this.prixTotal;
      this.message = {
        quantite: this.quantite,
        prixTotal: this.prixTotal,
@@ -51,12 +56,14 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
   }
 }
   async minus() {
-    if (this.quantite > 0) {
+   
+      if(this.quantite > 0) {
       const promise2 = new Promise((resolve,reject) => {
-        resolve(this.quantite--);
+        resolve(this.adjustMinus());
         reject("Vous ne pouvez pas choisir une quantité négative")
       
       })
+    
       let prixTotal = await promise2;
       this.prixTotal = this.quantite*this.produit.prixUnitaire;
       this.message = {
@@ -66,9 +73,27 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
       };
 
     }
+   
 
   }
+  
+  acheterProduit() {
+    
+    this.produitCard = JSON.parse(localStorage.getItem('produitCard'))
+    this.produitCard.push((this.produit));
 
+    localStorage.setItem('produitCard',JSON.stringify(this.produitCard));
+    console.log("session data :",localStorage.getItem('produitCard'));
+    
+    }
+  adjustPlus() {
+    this.quantite++;
+    this.produit.quantite--;
+  }
+  adjustMinus() {
+    this.quantite--;
+    this.produit.quantite++;
+  }
    
   ngOnDestroy():void {
     this.data.unsubscribe;
@@ -87,4 +112,5 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
   sendData() {
     this.interactionService.sendData(this.message);
   }
+  
 }
