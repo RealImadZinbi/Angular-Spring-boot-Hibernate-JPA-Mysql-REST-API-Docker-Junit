@@ -1,0 +1,54 @@
+<h1>Liste des produits</h1>
+<div>
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <img  [src]="element.image" />
+        </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef>NOM</th>
+        <td class="nomProduit" mat-cell *matCellDef="let element"> {{element.nomProduit}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="quantite">
+        <th mat-header-cell *matHeaderCellDef> QUANTITÉ </th>
+        <td class="quantite" mat-cell *matCellDef="let element">{{element.quantite}}</td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="prixUnitaire">
+        <th mat-header-cell *matHeaderCellDef> PRIX UNITAIRE	 </th>
+        <td class="prixUnitaire" mat-cell *matCellDef="let element"> {{element.prixUnitaire}} Dhs TTC </td>
+      </ng-container>
+      <ng-container matColumnDef="MODIFIER">
+        <th mat-header-cell *matHeaderCellDef> MODIFIER	 </th>
+        <td mat-cell *matCellDef="let element"> <button (click)="openDialog() ; sendData(element)" mat-fab color="accent" aria-label="Example icon button with a delete icon">
+            <mat-icon>edit</mat-icon>
+        </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="SUPPRIMER">
+        <th mat-header-cell *matHeaderCellDef> SUPPRIMER </th>
+        <td mat-cell *matCellDef="let element">
+            <button (click)="deleteProduct(element.id)" mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                <mat-icon>delete</mat-icon>
+              </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="inline-form">
+      <div class="d-flex justify-content-end">
+      </div>
+          </div>
+     
+  </div>

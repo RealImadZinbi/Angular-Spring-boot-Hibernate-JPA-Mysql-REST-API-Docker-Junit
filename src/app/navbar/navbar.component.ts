@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
+import { TokenStorageServiceService } from '../Services/token-storage-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
  opened : boolean = false;
-  constructor(public router:Router) { }
+ currentUser: any;
+  constructor(public router:Router,
+              private token: TokenStorageServiceService) { }
 
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
+
   }
   
 

@@ -1,3 +1,7 @@
+import { ProfileComponent } from './profile/profile.component';
+import { GererCommandeComponent } from './gerer-commande/gerer-commande.component';
+import { MescommandesListeComponent } from './mescommandes-liste/mescommandes-liste.component';
+import { MesCommandesComponent } from './mes-commandes/mes-commandes.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { VoirProduitComponent } from './voir-produit/voir-produit.component';
 import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
@@ -14,7 +18,12 @@ const routes: Routes = [
   { path:'AjouterProduit',component: AjouterProduitComponent},
   { path:'EspaceAdmin',component: EspaceAdminComponent},
   { path:'detailProduit/:id',component: VoirProduitComponent},
-  { path:'',component:SidenavComponent}
+  { path:'MesAchats', component: MescommandesListeComponent},
+  { path:'GestionCommande', component: GererCommandeComponent},
+  { path:'Profile', component: ProfileComponent},
+
+  { path:'',  component:  SidenavComponent}
+  
 
 ];
 

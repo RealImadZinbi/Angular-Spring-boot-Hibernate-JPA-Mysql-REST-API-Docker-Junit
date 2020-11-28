@@ -1,0 +1,56 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+.mat-elevation-z8 {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+table {
+    width: 100%;
+    background-color: white;
+}
+img {
+    width: 15%;    
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+}
+.amount {
+    margin-top: 20px;
+    font-size: 150%;
+    color : #FFA500;
+    margin-right: 20px;
+    font-weight: bold;
+
+} 
+.boutons {
+  padding: 18px;
+  margin-left: 20px;
+}
+.prixUnitaire {
+  font-size: 18px;
+   color: red;
+   font-weight: bold;
+
+}
+.quantite{ 
+  font-size: 18px;
+  font-weight: bold;
+}
+
+h1 {
+  font-weight: bold;
+}
+.nomProduit {
+    font-size: 18px;
+    font-weight:bold;
+}
+.total {
+    font-size: large;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+  }  

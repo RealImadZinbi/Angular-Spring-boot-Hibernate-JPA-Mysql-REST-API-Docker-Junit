@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { InteractionServiceService } from './../Services/interaction-service.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-ajouter-au-panier',
@@ -10,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class AjouterAuPanierComponent implements OnInit,OnDestroy {
  message: any;
  data: Subscription;
+ router: Router
   constructor(private interactionService: InteractionServiceService) {
      this.data = this.interactionService.liste$.subscribe({
        next: (message) => {
@@ -23,5 +26,8 @@ export class AjouterAuPanierComponent implements OnInit,OnDestroy {
   }
   ngOnDestroy() {
     this.data.unsubscribe;
+  }
+  continuer() {
+    this.router.navigate['/Monpanier']; 
   }
 }

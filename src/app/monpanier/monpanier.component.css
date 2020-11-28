@@ -1,7 +1,14 @@
 table {
+    
+    
     width: 100%;
-    background-color: #eeeeee;
+    background-color: white;
   }
+ img {
+   width: 15%;    
+   object-fit: cover; /*this makes the image in src fit to the size specified below*/
+
+   } 
 .total {
   font-size: large;
   margin-right: 20px;
@@ -17,4 +24,22 @@ table {
 .boutons {
   padding: 18px;
   margin-left: 20px;
+}
+.prixUnitaire {
+  font-size: 15px;
+   color: red
+
+}
+.sousTotal {
+  font-size: 17px;
+  color : #FFA500;
+
+}
+.quantite{ 
+  font-size: 15px;
+  font-weight: bold;
+}
+
+h1 {
+  font-weight: bold;
 }

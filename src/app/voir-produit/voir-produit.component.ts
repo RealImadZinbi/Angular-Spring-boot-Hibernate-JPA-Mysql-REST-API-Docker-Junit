@@ -6,6 +6,7 @@ import { ProduitsService } from './../Services/produits.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { Produit } from '../produit.model';
+import { TokenStorageServiceService } from '../Services/token-storage-service.service';
 
 @Component({
   selector: 'app-voir-produit',
@@ -18,13 +19,15 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private dialog: MatDialog,
-              private interactionService: InteractionServiceService) { }
+              private interactionService: InteractionServiceService,
+              private token : TokenStorageServiceService) { }
   id: number;            
   produit: Produit;
   data: Subscription;
   quantite: number = 0;
   prixTotal: number = 0;
   message: any;
+  quantiteInitiale: number = 0;
   produitCard = [];
   ngOnInit(): void {
     this.produit = new Produit();
@@ -33,7 +36,8 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
     this.data = this.produitService.getProduct(this.id).subscribe((produit) => {
       console.log(produit);
       this.produit = produit;
-
+       this.quantiteInitiale = this.produit.quantite;
+      console.log('initial quantity:',this.quantiteInitiale)
     }, error => console.log(error)); 
   }
   
@@ -50,7 +54,8 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
      this.message = {
        quantite: this.quantite,
        prixTotal: this.prixTotal,
-       nomProduit: this.produit.nomProduit
+       nomProduit: this.produit.nomProduit,
+       username: this.token.getUser().username
 
      };
   }
@@ -69,7 +74,8 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
       this.message = {
         quantite: this.quantite,
         prixTotal: this.prixTotal,
-        nomProduit: this.produit.nomProduit
+        nomProduit: this.produit.nomProduit,
+        username: this.token.getUser().username
       };
 
     }
@@ -78,8 +84,10 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
   }
   
   acheterProduit() {
-    
-    this.produitCard = JSON.parse(localStorage.getItem('produitCard'))
+    if (localStorage.getItem('produitCard') !== null) {
+    this.produitCard = JSON.parse(localStorage.getItem('produitCard'));
+    }
+    this.produit.quantite = this.quantiteInitiale - this.produit.quantite; 
     this.produitCard.push((this.produit));
 
     localStorage.setItem('produitCard',JSON.stringify(this.produitCard));
@@ -111,6 +119,7 @@ export class VoirProduitComponent implements OnDestroy, OnInit {
   }
   sendData() {
     this.interactionService.sendData(this.message);
+    console.log(this.message);
   }
   
 }

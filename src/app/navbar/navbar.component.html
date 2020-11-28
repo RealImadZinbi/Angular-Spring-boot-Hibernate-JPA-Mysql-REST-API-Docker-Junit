@@ -32,11 +32,11 @@
       <mat-sidenav-container>
     <mat-sidenav mode="side" [(opened)]="opened">
         <div class="large">
-            Imad Zinbi
+            {{currentUser.username}}
         </div>
        <mat-nav-list>
            <mat-list-item><mat-icon matListIcon>account_circle</mat-icon><h4 matLine>Mon compte</h4></mat-list-item>
-           <mat-list-item><mat-icon matListIcon>assignment</mat-icon><h4 matLine>Mes achats</h4></mat-list-item>
+           <mat-list-item routerLink="MesAchats"><mat-icon matListIcon>assignment</mat-icon><h4 matLine>Mes achats</h4></mat-list-item>
            <mat-list-item routerLink="Monpanier"><mat-icon matListIcon>shopping_basket</mat-icon><h4 matLine>Mon panier</h4></mat-list-item>
            <mat-list-item><mat-icon matListIcon>settings_power</mat-icon><h4 matLine>Déconnexion</h4></mat-list-item>
            

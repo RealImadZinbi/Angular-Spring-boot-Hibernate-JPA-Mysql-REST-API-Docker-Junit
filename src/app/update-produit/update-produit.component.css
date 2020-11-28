@@ -1,0 +1,19 @@
+mat-form-field {
+     width: 90%;
+     padding: 5px;
+}
+h1 {
+    font-size: 25px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.update {
+    display: flex;
+    justify-content: center;
+}    
+.button {
+    font-size: large;
+}  

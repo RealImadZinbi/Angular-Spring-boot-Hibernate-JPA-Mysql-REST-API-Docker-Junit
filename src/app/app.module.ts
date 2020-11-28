@@ -1,3 +1,5 @@
+import { TokenStorageServiceService } from './Services/token-storage-service.service';
+import { authInterceptorProviders } from './_helpers/auth_interceptor';
 import { SuccessAddComponent } from './success-add/success-add.component';
 import { InteractionServiceService } from './Services/interaction-service.service';
 import { ProduitsService } from './Services/produits.service';
@@ -33,6 +35,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { VoirProduitComponent } from './voir-produit/voir-produit.component';
 import { AjouterAuPanierComponent } from './ajouter-au-panier/ajouter-au-panier.component';
+import { MesCommandesComponent } from './mes-commandes/mes-commandes.component';
+import { MescommandesListeComponent } from './mescommandes-liste/mescommandes-liste.component';
+import { GererCommandeComponent } from './gerer-commande/gerer-commande.component';
+import { UpdateProduitComponent } from './update-produit/update-produit.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +53,11 @@ import { AjouterAuPanierComponent } from './ajouter-au-panier/ajouter-au-panier.
     AjouterProduitComponent,
     SuccessAddComponent,
     VoirProduitComponent,
-    AjouterAuPanierComponent
+    AjouterAuPanierComponent,
+    MesCommandesComponent,
+    MescommandesListeComponent,
+    GererCommandeComponent,
+    UpdateProduitComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +83,9 @@ import { AjouterAuPanierComponent } from './ajouter-au-panier/ajouter-au-panier.
 
   ],
   providers: [ProduitsService,
-            InteractionServiceService],
+            InteractionServiceService,
+            TokenStorageServiceService,
+            authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
